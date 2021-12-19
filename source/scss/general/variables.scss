@@ -2,6 +2,9 @@ $c-light: #ffffff;
 $c-dark: #5f458c;
 $c-purple: #a67ee5;
 
+$blue: #3e72ee;
+$lightblue: #a0ceff;
+
 $font: "Proxima Nova", "Arial", sans-serif;
 $font-alt: "Radical",  "Arial", sans-serif;
 
@@ -19,3 +22,24 @@ $retina-dpi: 144dpi;
 $retina-dppx: 1.5dppx;
 
 $index: 1.38871;
+
+
+:root {
+  --theme-color-secondary: #{$c-dark};
+  --theme-color-primary: #{$c-purple};
+}
+
+[data-theme="history-1"]{
+    --theme-color-secondary: #{$c-purple};
+    --theme-color-primary: #{$c-dark};
+}
+
+[data-theme="history-2"]{
+    --theme-color-secondary: #{$blue};
+    --theme-color-primary: #{$lightblue};
+}
+
+[data-theme="history-3"]{
+    --theme-color-secondary: #{$lightblue};
+    --theme-color-primary: #{$blue};
+}
