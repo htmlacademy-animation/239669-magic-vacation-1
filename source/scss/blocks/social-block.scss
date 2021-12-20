@@ -32,6 +32,7 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
+    transition: all 0.2s;
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
@@ -49,8 +50,7 @@
     color: var(--theme-color-primary);
 
     &::before {
-      width: 112.5%;
-      height: 112.5%;
+      transform: translate(-50%, -50%) scale(1.125);
     }
   }
 
@@ -89,6 +89,7 @@
   margin-top: 1.5rem;
   opacity: 0;
   pointer-events: none;
+  transition: opacity 0.2s ease;
 
   @media (min-width: $stop-scaling) {
     margin-top: 15px;
@@ -140,6 +141,18 @@
   .social-block--active & {
     opacity: 1;
     pointer-events: auto;
+    .social-block__link { 
+      opacity: 1;
+      transform: translateY(0);
+
+      &--insta {
+        transition-delay: 0.15s;
+      }
+
+      &--vk {
+        transition-delay: 0.3s;
+      }
+    }
   }
 
   li {
@@ -168,7 +181,9 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
-
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition: all 0.2s;
   @media (min-width: $stop-scaling) {
     width: 40px;
     height: 40px;

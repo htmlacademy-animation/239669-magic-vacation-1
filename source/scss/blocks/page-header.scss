@@ -251,7 +251,7 @@
       background-color: $c-light;
       transform: scaleX(0);
       left: 0;
-      transition: transform 0.3s ease-in 0.2s, background-color 0.2s ease 0s;
+      transition: transform 0.3s ease-in, background-color 0.2s ease 0s;
       transform-origin: top right;
 
       @media (max-width: $tablet) and (orientation: portrait) {

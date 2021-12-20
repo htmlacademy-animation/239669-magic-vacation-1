@@ -58,3 +58,24 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+
+@mixin fadeIn {
+  opacity: 0;
+  transition: opacity 0.4s, transform 0.4s;
+}
+
+@mixin fadeInTransitionInit {
+  @include fadeIn();
+  transform: translateY(20%);
+}
+
+@mixin fadeInLeftTransitionInit {
+  @include fadeIn();
+  transform: translateX(20%);
+}
+
+@mixin fadeInTransitionActive {
+  opacity: 1;
+  transform: translate(0);
+}
