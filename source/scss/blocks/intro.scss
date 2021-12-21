@@ -97,6 +97,7 @@
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.27;
+
   @include fadeInTransitionInit;
 
   @media (min-width: $stop-scaling) {

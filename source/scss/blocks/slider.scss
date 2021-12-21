@@ -92,19 +92,16 @@
 
 .screen--story.active {
   .swiper-slide-active {
-    .slider__item-text  {
+    .slider__item-text {
       @include fadeInTransitionActive;
       transition-delay: 400ms;
     }
   }
+
   @media (min-width: $mobile) and (orientation: landscape) {
     .swiper-slide-next {
-      .slider__item-text  {
+      .slider__item-text {
         @include fadeInTransitionActive;
-      }
-    }
-    .swiper-slide-next {
-      .slider__item-text  {
         transition-delay: 550ms;
       }
     }
@@ -117,7 +114,9 @@
   max-width: 34rem;
   font-size: 1.8rem;
   line-height: 2rem;
+
   @include fadeInLeftTransitionInit;
+
   @media (min-width: $stop-scaling) {
     margin-top: 36px;
     max-width: 340px;
