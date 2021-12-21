@@ -29,6 +29,40 @@
   }
 }
 
+.screen--game {
+  .form__field {
+    width: 0;
+    transition: width 0.2s;
+    margin-left: auto;
+  }
+
+  .form__button {
+    flex-grow: 0;
+  }
+
+  &.active {
+    .form__field {
+      width: calc(100% - 21rem);
+
+      @media (min-width: $stop-scaling) {
+        width: calc(100% - 210px);
+      }
+
+      @media (orientation: portrait) {
+        width: calc(100% - 5rem);
+      }
+
+      @media (max-width: $tablet) and (orientation: landscape) {
+        width: calc(100% - 9rem);
+      }
+
+      @media (max-width: $mobile) and (orientation: landscape) {
+        width: calc(100% - 5rem);
+      }
+    }
+  }
+}
+
 .form__field {
   flex: none;
   margin-right: 3rem;

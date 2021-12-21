@@ -15,7 +15,7 @@
   display: block;
   width: 4rem;
   height: 4rem;
-  color: $c-dark;
+  color: var(--theme-color-secondary);
   border-radius: 50%;
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -32,6 +32,7 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
+    transition: all 0.2s;
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
@@ -46,20 +47,19 @@
 
   &:hover,
   .social-block--active & {
-    color: $c-purple;
+    color: var(--theme-color-primary);
 
     &::before {
-      width: 112.5%;
-      height: 112.5%;
+      transform: translate(-50%, -50%) scale(1.125);
     }
   }
 
   &:focus {
-    color: $c-purple;
+    color: var(--theme-color-primary);
     outline: none;
 
     &::before {
-      border-color: $c-purple;
+      border-color: var(--theme-color-primary);
     }
 
     & + .social-block__list {
@@ -75,8 +75,8 @@
     &::before {
       width: 100%;
       height: 100%;
-      background-color: $c-purple;
-      border-color: $c-purple;
+      background-color: var(--theme-color-primary);
+      border-color: var(--theme-color-primary);
     }
   }
 }
@@ -89,6 +89,7 @@
   margin-top: 1.5rem;
   opacity: 0;
   pointer-events: none;
+  transition: opacity 0.2s ease;
 
   @media (min-width: $stop-scaling) {
     margin-top: 15px;
@@ -140,6 +141,19 @@
   .social-block--active & {
     opacity: 1;
     pointer-events: auto;
+
+    .social-block__link {
+      opacity: 1;
+      transform: translateY(0);
+
+      &--insta {
+        transition-delay: 0.15s;
+      }
+
+      &--vk {
+        transition-delay: 0.3s;
+      }
+    }
   }
 
   li {
@@ -168,6 +182,9 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition: all 0.2s;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -176,28 +193,28 @@
 
   @media (max-width: $tablet) and (orientation: portrait) {
     color: $c-light;
-    background-color: $c-dark;
+    background-color: var(--theme-color-secondary);
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
     color: $c-light;
-    background-color: $c-dark;
+    background-color: var(--theme-color-secondary);
   }
 
   &:hover {
-    color: $c-purple;
+    color: var(--theme-color-primary);
   }
 
   &:focus {
-    color: $c-purple;
+    color: var(--theme-color-primary);
     background-color: $c-light;
-    border-color: $c-purple;
+    border-color: var(--theme-color-primary);
     outline: none;
   }
 
   &:active,
   &:active:focus {
-    color: $c-purple;
+    color: var(--theme-color-primary);
     background-color: $c-light;
     border-color: $c-light;
   }
