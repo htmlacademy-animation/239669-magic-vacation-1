@@ -23,6 +23,7 @@ $retina-dppx: 1.5dppx;
 
 $index: 1.38871;
 
+$initial-timing-function: cubic-bezier(0.3, 0.8, 0.5, 1);
 
 :root {
   --theme-color-secondary: #{$c-dark};

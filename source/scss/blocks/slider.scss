@@ -115,7 +115,7 @@
   font-size: 1.8rem;
   line-height: 2rem;
 
-  @include fadeInLeftTransitionInit;
+  @include fadeInTransitionInit(left);
 
   @media (min-width: $stop-scaling) {
     margin-top: 36px;

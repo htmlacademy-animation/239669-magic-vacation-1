@@ -26,13 +26,17 @@
     display: none;
   }
 
+  body.loaded &:not(:hover)::before {
+    @include center(scale(1));
+  }
+
   &::before {
-    @include center;
+    @include center(scale(0));
     content: "";
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    transition: all 0.2s;
+    transition: transform 0.5s cubic-bezier(0.4, 1.6, 0.6, 1);
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
@@ -50,7 +54,7 @@
     color: var(--theme-color-primary);
 
     &::before {
-      transform: translate(-50%, -50%) scale(1.125);
+      @include center(scale(1.125));
     }
   }
 

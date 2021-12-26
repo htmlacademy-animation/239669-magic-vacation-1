@@ -52,27 +52,33 @@
   }
 }
 
-@mixin center {
+@mixin center($transformProps:null) {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) $transformProps;
 }
 
 
-@mixin fadeIn {
+@mixin fadeInTransitionInit($direction: "up", $duration: 0.4s, $timing-function: ease, $distance: 20%) {
   opacity: 0;
-  transition: opacity 0.4s, transform 0.4s;
-}
+  transition: opacity $duration $timing-function, transform $duration $timing-function;
 
-@mixin fadeInTransitionInit {
-  @include fadeIn();
-  transform: translateY(20%);
-}
+  @if $direction == up {
+    transform: translateY($distance);
+  }
 
-@mixin fadeInLeftTransitionInit {
-  @include fadeIn();
-  transform: translateX(20%);
+  @else if $direction == down {
+    transform: translateY(-$distance);
+  }
+
+  @else if $direction == right {
+    transform: translateX(-$distance);
+  }
+
+  @else if $direction == left {
+    transform: translateX($distance);
+  }
 }
 
 @mixin fadeInTransitionActive {

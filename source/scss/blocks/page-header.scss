@@ -36,6 +36,12 @@
   width: 10rem;
   color: $c-light;
 
+  @include fadeInTransitionInit(right, 0.5s, $initial-timing-function);
+
+  body.loaded & {
+    @include fadeInTransitionActive;
+  }
+
   @media (min-width: $stop-scaling) {
     top: -5px;
     padding: 10px 0;
@@ -170,6 +176,10 @@
   }
 }
 
+body.loaded .page-header__menu {
+  opacity: 1;
+}
+
 .page-header__menu {
   font-family: $font-alt;
   text-transform: uppercase;
@@ -177,6 +187,8 @@
   font-size: 1.2rem;
   line-height: 1.0418;
   color: $c-light;
+  opacity: 0;
+  transition: opacity 0.5s $initial-timing-function;
 
   @media (min-width: $stop-scaling) {
     font-size: 12px;
@@ -271,6 +283,7 @@
     &.active {
       &::after {
         transform: scaleX(100%);
+        transform-origin: top left;
       }
     }
 
