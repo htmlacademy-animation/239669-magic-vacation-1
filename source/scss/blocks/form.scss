@@ -33,6 +33,7 @@
   .form__field {
     width: 0;
     transition: width 0.2s;
+    will-change: width;
     margin-left: auto;
   }
 

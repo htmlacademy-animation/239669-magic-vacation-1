@@ -266,6 +266,7 @@ body.loaded .page-header__menu {
       left: 0;
       transition: transform 0.3s ease-in, background-color 0.2s ease 0s;
       transform-origin: top right;
+      will-change: transform, background-color;
 
       @media (max-width: $tablet) and (orientation: portrait) {
         left: 0;

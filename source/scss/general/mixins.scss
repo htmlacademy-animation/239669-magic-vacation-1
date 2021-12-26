@@ -63,6 +63,7 @@
 @mixin fadeInTransitionInit($direction: "up", $duration: 0.4s, $timing-function: ease, $distance: 20%) {
   opacity: 0;
   transition: opacity $duration $timing-function, transform $duration $timing-function;
+  will-change: transform, opacity;
 
   @if $direction == up {
     transform: translateY($distance);

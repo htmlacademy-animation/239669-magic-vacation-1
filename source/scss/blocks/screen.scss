@@ -48,6 +48,7 @@
   z-index: 1;
   transform: translateY(100%);
   transition: transform 0.5s $initial-timing-function;
+  will-change: transform;
 
   body.loaded & {
     transform: translateY(0);
