@@ -99,6 +99,7 @@
   line-height: 1.27;
 
   @include fadeInTransitionInit;
+  transition-delay: 0.5s;
 
   @media (min-width: $stop-scaling) {
     width: 509px;
