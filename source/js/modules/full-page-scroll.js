@@ -9,6 +9,7 @@ export default class FullPageScroll {
     this.screenElements = document.querySelectorAll(`.screen:not(.screen--result)`);
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
 
+    this.prevScreen = 0;
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
     this.onUrlHashChengedHandler = this.onUrlHashChanged.bind(this);
@@ -41,14 +42,35 @@ export default class FullPageScroll {
 
   onUrlHashChanged() {
     const newIndex = Array.from(this.screenElements).findIndex((screen) => location.hash.slice(1) === screen.id);
+    this.prevScreen = this.activeScreen;
     this.activeScreen = (newIndex < 0) ? 0 : newIndex;
     this.changePageDisplay();
   }
 
-  changePageDisplay() {
+  async changePageDisplay() {
+    await this.animateScreenTransition();
     this.changeVisibilityDisplay();
     this.changeActiveMenuItem();
     this.emitChangeDisplayEvent();
+  }
+
+  async animateScreenTransition() {
+    const isAnimatedPageTransition = this.activeScreen === 2
+      && this.prevScreen === 1;
+
+    if (!isAnimatedPageTransition) {
+      return null;
+    }
+
+    const background = document.querySelector(`.screen-background`);
+    background.classList.add(`active`);
+
+    return new Promise((resolve) => {
+      background.addEventListener(`transitionend`, ()=> {
+        background.classList.remove(`active`);
+        resolve();
+      }, {once: true});
+    });
   }
 
   changeVisibilityDisplay() {
