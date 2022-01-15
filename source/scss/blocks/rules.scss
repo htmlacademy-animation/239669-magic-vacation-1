@@ -147,7 +147,7 @@
     }
 
     p {
-      animation-delay: #{(0.15s * $i + 0.3s)};
+      animation-delay: #{(0.15s * $i + 0.1s)};
     }
   }
 }
