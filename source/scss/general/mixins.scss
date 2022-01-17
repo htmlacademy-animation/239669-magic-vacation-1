@@ -86,3 +86,17 @@
   opacity: 1;
   transform: translate(0);
 }
+
+@mixin fade-animation-mixin($name, $from, $to) {
+  @keyframes #{$name} {
+    0% {
+      transform: $from;
+      opacity: 0;
+    }
+
+    100% {
+      transform: $to;
+      opacity: 1;
+    }
+  }
+}

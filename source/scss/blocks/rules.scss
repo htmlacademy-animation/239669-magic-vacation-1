@@ -117,6 +117,49 @@
   }
 }
 
+
+@keyframes bullets {
+  0% {
+    transform: scale(0);
+    color: transparent;
+  }
+
+  45% {
+    color: transparent;
+  }
+
+  60% {
+    color: white;
+
+  }
+
+  75% {
+    transform: scale(105%);
+  }
+
+  100% {
+    transform: scale(100%);
+  }
+}
+
+@for $i from 1 through 4 {
+  .rules__item:nth-child(#{$i}) {
+    &::before {
+      animation-delay: #{(0.15s * $i)};
+    }
+
+    p {
+      animation-delay: #{(0.15s * $i + 0.1s)};
+    }
+  }
+}
+
+@include fade-animation-mixin(
+  "fadeLeftRulesText",
+  translateX(5%),
+  translateX(0)
+);
+
 .rules__item {
   position: relative;
   margin: 0 0 6.2rem;
@@ -145,6 +188,13 @@
   }
 
   &::before {
+    /*init animation*/
+    animation-duration: 0.4s;
+    animation-fill-mode: both;
+    animation-name: bullets;
+    // animation-timing-function:  cubic-bezier(0.3,0.5,0.6,1.5);
+    animation-play-state: paused;
+    will-change: transform, color;
     content: counter(li);
     counter-increment: li;
     position: absolute;
@@ -183,13 +233,81 @@
     @media (max-width: $tablet) and (orientation: portrait) {
       min-height: calc(1.4rem * 2.2);
     }
+    /*init animation*/
+    will-change: transform, opacity;
+    animation-duration: 0.4s;
+    animation-fill-mode: both;
+    animation-name: fadeLeftRulesText;
+  }
+
+  .screen--rules.active & {
+    &::before {
+      animation-play-state: running;
+    }
+
+    p {
+      animation-play-state: running;
+    }
+  }
+}
+
+@keyframes linkAnimation {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  to {
+    width: 18rem;
+    opacity: 1;
+  }
+}
+
+@keyframes linkTextAnimation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 
 .rules__link {
+  /* init animation */
+  width: 0;
+  opacity: 0;
+  will-change: width;
+  animation-fill-mode: both;
+  animation-name: linkAnimation;
+  animation-delay: 0.7s;
+  animation-duration: 0.3s;
   position: absolute;
   bottom: 6rem;
   right: 5.6rem;
+
+  span {
+    /* init animation */
+    opacity: 0;
+    animation-delay: 1s;
+    animation-duration: 0.3s;
+    will-change: opacity;
+    animation-fill-mode: both;
+    animation-name: linkTextAnimation;
+    animation-play-state: paused;
+  }
+
+  .screen--rules.active & {
+    animation-play-state: running;
+
+    & span {
+      animation-play-state: running;
+    }
+  }
 
   @media (min-width: $stop-scaling) {
     bottom: 60px;
