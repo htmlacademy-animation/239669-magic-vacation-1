@@ -8,7 +8,7 @@
   }
 }
 
-.animated-text__word {
+.accent-typography__word {
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
@@ -16,7 +16,7 @@
   padding-top: 0.2em;
 }
 
-.animated-text__word > span {
+.accent-typography__word > span {
   will-change: transform;
   animation-name: text-animation;
   animation-fill-mode: backwards;
@@ -24,6 +24,6 @@
   display: inline-block;
 }
 
-.screen.active .animated-text__word > span {
+.screen.active .accent-typography__word > span {
   animation-play-state: running;
 }

@@ -32,7 +32,7 @@ class AccentTypographyBuild {
         return fragment;
       }, document.createDocumentFragment());
       const wordContainer = document.createElement(`span`);
-      wordContainer.classList.add(`animated-text__word`);
+      wordContainer.classList.add(`accent-typography__word`);
       wordContainer.appendChild(wordElement);
       fragmentParent.appendChild(wordContainer);
       return fragmentParent;
