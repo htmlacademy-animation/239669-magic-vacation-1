@@ -181,6 +181,7 @@
     }
   }
 }
+
 .screen--result {
   .form {
     justify-content: flex-end;
@@ -201,7 +202,7 @@
     animation-duration: 400ms;
     animation-delay: 1000ms;
     animation-fill-mode: backwards;
-  } 
+  }
 }
 
 @keyframes fadeInField {

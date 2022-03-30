@@ -371,9 +371,10 @@
 
   &.flamingo {
     animation:
-    fadeInFlamingo 750ms ease-in-out 150ms both,
-    bounceFlamingo 3s ease-in-out 150ms infinite;
+      fadeInFlamingo 750ms ease-in-out 150ms both,
+      bounceFlamingo 3s ease-in-out 150ms infinite;
     animation-play-state: paused;
+
     .screen--show & {
       animation-play-state: running;
     }
@@ -386,6 +387,7 @@
     animation-fill-mode: both;
     animation-timing-function: cubic-bezier(0.75, 0.75, 0.75, 1.15);
     animation-play-state: paused;
+
     .screen--show & {
       animation-play-state: running;
     }
@@ -398,6 +400,7 @@
     animation-fill-mode: both;
     animation-timing-function: ease-in-out;
     animation-play-state: paused;
+
     .screen--show & {
       animation-play-state: running;
     }
@@ -409,6 +412,7 @@
     animation-fill-mode: both;
     animation-timing-function: ease-in-out;
     animation-play-state: paused;
+
     .screen--show & {
       animation-play-state: running;
     }
@@ -421,10 +425,9 @@
     animation-fill-mode: both;
     animation-timing-function: ease-in-out;
     animation-play-state: paused;
+
     .screen--show & {
       animation-play-state: running;
     }
   }
 }
-
-
