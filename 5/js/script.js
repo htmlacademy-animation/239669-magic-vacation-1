@@ -10269,7 +10269,6 @@ class AccentTypographyBuild {
     this._delay = delay;
     this._duration = duration;
     this._element = element;
-    this._timeOffset = 0;
   }
 
   createElement(letter) {

@@ -3052,6 +3052,7 @@ body.loaded .page-header__menu {
   }
   50% {
     transform: translate3d(15%, -20%, 0) rotate(20deg);
+    opacity: 1;
   }
   75% {
     transform: translate3d(15%, -30%, 0) rotate(-5deg);
@@ -3068,6 +3069,7 @@ body.loaded .page-header__menu {
   }
   50% {
     transform: translate3d(-115%, 30%, 0) rotate(-20deg);
+    opacity: 1;
   }
   75% {
     transform: translate3d(-115%, 15%, 0) rotate(5deg);
@@ -3085,6 +3087,9 @@ body.loaded .page-header__menu {
   25% {
     transform: translate3d(15%, 50%, 0) rotate(20deg);
   }
+  50% {
+    opacity: 1;
+  }
   100% {
     transform: translate3d(15%, 20%, 0) rotate(0deg);
     opacity: 1;
@@ -3093,20 +3098,18 @@ body.loaded .page-header__menu {
 @keyframes fadeInSuitcase {
   0% {
     transform: translate3d(-50%, 100%, 0) scale(0);
-    opacity: 0;
   }
   100% {
     transform: translate3d(-50%, -20%, 0) scale(1);
-    opacity: 1;
   }
 }
 @keyframes fadeInFlamingo {
   0% {
-    transform: translate3d(-80%, 100%, 0);
+    transform: translate3d(-80%, 100%, 0) rotate(-30deg);
     opacity: 0;
   }
   100% {
-    transform: translate3d(-80%, 0, 0);
+    transform: translate3d(-80%, 0, 0) rotate(0deg);
     opacity: 1;
   }
 }
@@ -3130,7 +3133,7 @@ body.loaded .page-header__menu {
   will-change: opacity, transform;
 }
 .result__image-element.flamingo {
-  animation: fadeInFlamingo 750ms ease-in-out 150ms both, bounceFlamingo 3s ease-in-out 150ms infinite;
+  animation: fadeInFlamingo 350ms cubic-bezier(0.75, 0.75, 0.75, 1.15) 50ms both, bounceFlamingo 3s ease-in-out 400ms infinite;
   animation-play-state: paused;
 }
 .screen--show .result__image-element.flamingo {
@@ -3139,7 +3142,7 @@ body.loaded .page-header__menu {
 .result__image-element.suitcase {
   width: 300px;
   animation-name: fadeInSuitcase;
-  animation-duration: 750ms;
+  animation-duration: 350ms;
   animation-fill-mode: both;
   animation-timing-function: cubic-bezier(0.75, 0.75, 0.75, 1.15);
   animation-play-state: paused;
@@ -3150,7 +3153,7 @@ body.loaded .page-header__menu {
 .result__image-element.leaf-blue-1 {
   animation-name: fadeInLeafBlue1;
   animation-duration: 2200ms;
-  animation-delay: 150ms;
+  animation-delay: 100ms;
   animation-fill-mode: both;
   animation-timing-function: ease-in-out;
   animation-play-state: paused;
@@ -3161,6 +3164,7 @@ body.loaded .page-header__menu {
 .result__image-element.leaf-blue-2 {
   animation-name: fadeInLeafBlue2;
   animation-duration: 2000ms;
+  animation-delay: 100ms;
   animation-fill-mode: both;
   animation-timing-function: ease-in-out;
   animation-play-state: paused;
@@ -3172,6 +3176,7 @@ body.loaded .page-header__menu {
   width: 300px;
   animation-name: fadeInLeafGreen;
   animation-duration: 2500ms;
+  animation-delay: 200ms;
   animation-fill-mode: both;
   animation-timing-function: ease-in-out;
   animation-play-state: paused;
