@@ -269,73 +269,87 @@
 
 @keyframes fadeInLeafBlue1 {
   0% {
-    transform: translate3d(15%, -50%, 0) rotate(-40deg);
+    transform: translate3d(5%, -40%, 0) rotate(-30deg);
     opacity: 0;
   }
 
+  25% {
+    transform: translate3d(5%, -35%, 0) rotate(10deg);
+  }
+
   50% {
-    transform: translate3d(15%, -20%, 0) rotate(20deg);
+    transform: translate3d(5%, -30%, 0) rotate(-5deg);
     opacity: 1;
   }
 
   75% {
-    transform: translate3d(15%, -30%, 0) rotate(-5deg);
+    transform: translate3d(5%, -25%, 0) rotate(5deg);
   }
 
   100% {
-    transform: translate3d(15%, -30%, 0) rotate(0deg);
+    transform: translate3d(5%, -30%, 0) rotate(0deg);
     opacity: 1;
   }
 }
 
 @keyframes fadeInLeafBlue2 {
   0% {
-    transform: translate3d(-115%, -20%, 0) rotate(40deg);
+    transform: translate3d(-110%, 0%, 0) rotate(30deg);
     opacity: 0;
   }
 
+  25% {
+    transform: translate3d(-110%, 5%, 0) rotate(-10deg);
+  }
+
   50% {
-    transform: translate3d(-115%, 30%, 0) rotate(-20deg);
+    transform: translate3d(-110%, 10%, 0) rotate(5deg);
     opacity: 1;
   }
 
   75% {
-    transform: translate3d(-115%, 15%, 0) rotate(5deg);
+    transform: translate3d(-110%, 5%, 0) rotate(-5deg);
   }
 
   100% {
-    transform: translate3d(-115%, 20%, 0) rotate(0deg);
+    transform: translate3d(-110%, 10%, 0) rotate(0deg);
     opacity: 1;
   }
 }
 
 @keyframes fadeInLeafGreen {
   0% {
-    transform: translate3d(15%, 20%, 0) rotate(-40deg);
+    transform: translate3d(7%, 30%, 0) rotate(-30deg);
     opacity: 0;
   }
 
   25% {
-    transform: translate3d(15%, 50%, 0) rotate(20deg);
+    transform: translate3d(7%, 30%, 0) rotate(10deg);
   }
 
   50%{
+    transform: translate3d(7%, 30%, 0) rotate(-5deg);
     opacity: 1;
   }
 
+  75%{
+    opacity: 1;
+    transform: translate3d(7%, 30%, 0) rotate(5deg);
+  }
+
   100% {
-    transform: translate3d(15%, 20%, 0) rotate(0deg);
+    transform: translate3d(7%, 30%, 0) rotate(0deg);
     opacity: 1;
   }
 }
 
 @keyframes fadeInSuitcase {
   0% {
-    transform: translate3d(-50%, 100%, 0) scale(0);
+    transform: translate3d(-50%, 100%, 0) scale(0)  rotate(-5deg);
   }
 
   100% {
-    transform: translate3d(-50%, -20%, 0) scale(1);
+    transform: translate3d(-50%, -20%, 0) scale(1)  rotate(-5deg);
   }
 }
 
@@ -399,10 +413,11 @@
   &.leaf-blue-1 {
     animation-name: fadeInLeafBlue1;
     animation-duration: 2200ms;
-    animation-delay: 100ms;
+    animation-delay: 150ms;
     animation-fill-mode: both;
     animation-timing-function:ease-in-out;
     animation-play-state: paused;
+    transform-origin: left center;
 
     .screen--show & {
       animation-play-state: running;
@@ -412,10 +427,11 @@
   &.leaf-blue-2 {
     animation-name: fadeInLeafBlue2;
     animation-duration: 2000ms;
-    animation-delay: 100ms;
+    animation-delay: 150ms;
     animation-fill-mode: both;
     animation-timing-function: ease-in-out;
     animation-play-state: paused;
+    transform-origin: right center;
 
     .screen--show & {
       animation-play-state: running;
@@ -425,12 +441,12 @@
   &.leaf-green {
     width: 300px;
     animation-name: fadeInLeafGreen;
-    animation-duration: 2500ms;
-    animation-delay: 200ms;
+    animation-duration: 2000ms;
+    animation-delay: 400ms;
     animation-fill-mode: both;
     animation-timing-function: ease-in-out;
     animation-play-state: paused;
-
+    transform-origin: left center;
     .screen--show & {
       animation-play-state: running;
     }
