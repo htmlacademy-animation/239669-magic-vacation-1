@@ -47,8 +47,6 @@
 
   img {
     display: block;
-    width: 100%;
-    height: 100%;
     object-fit: cover;
     object-position: center;
   }
@@ -265,6 +263,192 @@
 
     @media (max-width: $mobile) and (orientation: landscape) {
       width: 45rem;
+    }
+  }
+}
+
+@keyframes fadeInLeafBlue1 {
+  0% {
+    transform: translate3d(5%, -40%, 0) rotate(-30deg);
+    opacity: 0;
+  }
+
+  25% {
+    transform: translate3d(5%, -35%, 0) rotate(10deg);
+  }
+
+  50% {
+    transform: translate3d(5%, -30%, 0) rotate(-5deg);
+    opacity: 1;
+  }
+
+  75% {
+    transform: translate3d(5%, -25%, 0) rotate(5deg);
+  }
+
+  100% {
+    transform: translate3d(5%, -30%, 0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInLeafBlue2 {
+  0% {
+    transform: translate3d(-110%, 0%, 0) rotate(30deg);
+    opacity: 0;
+  }
+
+  25% {
+    transform: translate3d(-110%, 5%, 0) rotate(-10deg);
+  }
+
+  50% {
+    transform: translate3d(-110%, 10%, 0) rotate(5deg);
+    opacity: 1;
+  }
+
+  75% {
+    transform: translate3d(-110%, 5%, 0) rotate(-5deg);
+  }
+
+  100% {
+    transform: translate3d(-110%, 10%, 0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInLeafGreen {
+  0% {
+    transform: translate3d(7%, 30%, 0) rotate(-30deg);
+    opacity: 0;
+  }
+
+  25% {
+    transform: translate3d(7%, 30%, 0) rotate(10deg);
+  }
+
+  50%{
+    transform: translate3d(7%, 30%, 0) rotate(-5deg);
+    opacity: 1;
+  }
+
+  75%{
+    opacity: 1;
+    transform: translate3d(7%, 30%, 0) rotate(5deg);
+  }
+
+  100% {
+    transform: translate3d(7%, 30%, 0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInSuitcase {
+  0% {
+    transform: translate3d(-50%, 100%, 0) scale(0)  rotate(-5deg);
+  }
+
+  100% {
+    transform: translate3d(-50%, -20%, 0) scale(1)  rotate(-5deg);
+  }
+}
+
+@keyframes fadeInFlamingo {
+  0% {
+    transform: translate3d(-80%, 100%, 0) rotate(-30deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate3d(-80%, 0, 0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes bounceFlamingo {
+  0% {
+    transform: translate3d(-80%, 0, 0) rotate(0);
+  }
+
+  50% {
+    transform: translate3d(-80%, 5%, 0) rotate(5deg);
+  }
+
+  100% {
+    transform: translate3d(-80%, 0, 0) rotate(0);
+  }
+}
+
+.result__image-element {
+  position: absolute;
+  display: block;
+  width: 250px;
+  left: 50%;
+  top: 50%;
+  will-change: opacity, transform;
+
+  &.flamingo {
+    animation:
+      fadeInFlamingo 350ms cubic-bezier(0.75, 0.75, 0.75, 1.15) 50ms both,
+      bounceFlamingo 3s ease-in-out 400ms infinite;
+    animation-play-state: paused;
+    .screen--show & {
+      animation-play-state: running;
+    }
+  }
+
+  &.suitcase {
+    width: 300px;
+    animation-name: fadeInSuitcase;
+    animation-duration: 350ms;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.75, 0.75, 0.75, 1.15);
+    animation-play-state: paused;
+
+    .screen--show & {
+      animation-play-state: running;
+    }
+  }
+
+  &.leaf-blue-1 {
+    animation-name: fadeInLeafBlue1;
+    animation-duration: 2200ms;
+    animation-delay: 150ms;
+    animation-fill-mode: both;
+    animation-timing-function:ease-in-out;
+    animation-play-state: paused;
+    transform-origin: left center;
+
+    .screen--show & {
+      animation-play-state: running;
+    }
+  }
+
+  &.leaf-blue-2 {
+    animation-name: fadeInLeafBlue2;
+    animation-duration: 2000ms;
+    animation-delay: 150ms;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+    animation-play-state: paused;
+    transform-origin: right center;
+
+    .screen--show & {
+      animation-play-state: running;
+    }
+  }
+
+  &.leaf-green {
+    width: 300px;
+    animation-name: fadeInLeafGreen;
+    animation-duration: 2000ms;
+    animation-delay: 400ms;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+    animation-play-state: paused;
+    transform-origin: left center;
+    .screen--show & {
+      animation-play-state: running;
     }
   }
 }

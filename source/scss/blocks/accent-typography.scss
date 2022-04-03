@@ -1,0 +1,29 @@
+@keyframes text-animation {
+  from {
+    transform: translate3d(0, 1em, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.accent-typography__word {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-top: -0.2em;
+  padding-top: 0.2em;
+}
+
+.accent-typography__word > span {
+  will-change: transform;
+  animation-name: text-animation;
+  animation-fill-mode: backwards;
+  animation-play-state: paused;
+  display: inline-block;
+}
+
+.screen.active .accent-typography__word > span {
+  animation-play-state: running;
+}

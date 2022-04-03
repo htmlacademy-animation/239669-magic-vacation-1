@@ -99,7 +99,7 @@
   line-height: 1.27;
 
   @include fadeInTransitionInit;
-  transition-delay: 0.5s;
+  transition-delay: 0.7s;
 
   @media (min-width: $stop-scaling) {
     width: 509px;
@@ -142,12 +142,19 @@
   }
 }
 
+@include fade-animation-mixin("introAnimation", 0, 0);
+
 .intro__label {
   margin: 0 0 1.6rem;
   max-width: 25rem;
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.2;
+  will-change: opacity;
+  animation-duration: 400ms;
+  animation-name: introAnimation;
+  animation-delay: 1500ms;
+  animation-fill-mode: backwards;
 
   @media (min-width: $stop-scaling) {
     margin: 0 0 16px;
