@@ -168,6 +168,29 @@
     display: none;
   }
 }
+@keyframes leftControlAnimation {
+  from {
+    transform: translate3d(-200%, 0, 0) rotate(-360deg);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0) rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rightControlAnimation {
+  from {
+    transform: translate3d(200%, 0, 0) rotate(360deg);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0) rotate(0);
+    opacity: 1;
+  }
+}
 
 .slider__control {
   @include btn-reset;
@@ -175,6 +198,23 @@
   width: 4rem;
   height: 4rem;
   color: var(--theme-color-secondary);
+  animation-duration: 400ms;
+  animation-delay: 650ms;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+
+  .screen.active & {
+    animation-play-state: running;
+  }
+
+  &:first-child {
+    animation-name: leftControlAnimation;
+  }
+
+  &:last-child {
+    animation-name: rightControlAnimation;
+  }
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -241,6 +281,16 @@
   }
 }
 
+@keyframes sliderPaginationAnimation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .slider__pagination.swiper-pagination {
   position: absolute;
   bottom: 2.8rem;
@@ -253,6 +303,14 @@
   font-weight: 400;
   font-size: 2.4rem;
   line-height: 4rem;
+  animation-name: sliderPaginationAnimation;
+  animation-duration: 250ms;
+  animation-delay: 650ms;
+  animation-play-state: paused;
+  animation-fill-mode: both;
+  .screen.active  & {
+    animation-play-state: running;
+  }
 
   @media (min-width: $stop-scaling) {
     bottom: 28px;

@@ -1,4 +1,5 @@
 import throttle from 'lodash/throttle';
+import {setTheme} from './theme';
 
 export default class FullPageScroll {
   constructor() {
@@ -49,6 +50,7 @@ export default class FullPageScroll {
 
   async changePageDisplay() {
     await this.animateScreenTransition();
+    setTheme();
     this.changeVisibilityDisplay();
     this.changeActiveMenuItem();
     this.emitChangeDisplayEvent();

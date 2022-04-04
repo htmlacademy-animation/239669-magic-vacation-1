@@ -101,6 +101,26 @@
   }
 }
 
+@keyframes resultButtonIconAnimation {
+  from {
+    transform: translate3d(100%, 0, 0) rotate(180deg);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0) rotate(0);
+  }
+}
+
+@keyframes resultButtonAnimation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .result__button {
   @include btn-reset;
   display: flex;
@@ -113,6 +133,28 @@
   font-size: 2.4rem;
   line-height: 1.2;
   color: $c-light;
+  animation-name: resultButtonAnimation;
+  animation-timing-function: ease-out;
+  animation-duration: 300ms;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+  > span {
+    animation-name: resultButtonIconAnimation;
+    animation-delay: 50ms;
+    animation-duration: 400ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+    animation-play-state: paused;
+
+  }
+
+  .screen--show & {
+    animation-play-state: running;
+    > span {
+      animation-play-state: running;
+    }
+  }
+
 
   @media (min-width: $stop-scaling) {
     margin: auto auto 10px;
