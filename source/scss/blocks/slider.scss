@@ -168,6 +168,7 @@
     display: none;
   }
 }
+
 @keyframes leftControlAnimation {
   from {
     transform: translate3d(-200%, 0, 0) rotate(-360deg);
@@ -308,7 +309,8 @@
   animation-delay: 650ms;
   animation-play-state: paused;
   animation-fill-mode: both;
-  .screen.active  & {
+
+  .screen.active & {
     animation-play-state: running;
   }
 

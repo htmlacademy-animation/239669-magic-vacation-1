@@ -55,11 +55,31 @@
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
+    position: absolute;
+    bottom: 0;
+    background-color: transparent;
+    color: transparent;
     width: 3.5rem;
     height: 3.5rem;
-    border-radius: 0 3.6rem 0 0;
+    animation: none;
+    will-change: width, height, color;
+    transition: width 300ms, height 300ms, color 400ms 200ms;
+
+    &::before {
+      content: "";
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      border-radius: 0 3.6rem 0 0;
+      width: 100%;
+      height: 100%;
+      background: $c-light;
+      z-index: -1;
+    }
+
 
     &.screen__footer--full {
+      color: $c-dark;
       width: 100%;
       height: 18rem;
     }
