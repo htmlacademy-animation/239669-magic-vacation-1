@@ -1,6 +1,25 @@
+@keyframes textFadeIn {
+  from {
+    color: transparent;
+  }
+
+  to {
+    color: $c-dark;
+  }
+}
+
 .disclaimer {
   color: $c-dark;
   background-color: $c-light;
+  animation-name: textFadeIn;
+  animation-timing-function: ease-in;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+  animation-duration: 450ms;
+
+  .active & {
+    animation-play-state: running;
+  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     font-weight: 400;

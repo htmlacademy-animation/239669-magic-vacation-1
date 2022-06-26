@@ -101,6 +101,26 @@
   }
 }
 
+@keyframes resultButtonIconAnimation {
+  from {
+    transform: translate3d(100%, 0, 0) rotate(180deg);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0) rotate(0);
+  }
+}
+
+@keyframes resultButtonAnimation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .result__button {
   @include btn-reset;
   display: flex;
@@ -113,6 +133,29 @@
   font-size: 2.4rem;
   line-height: 1.2;
   color: $c-light;
+  animation-name: resultButtonAnimation;
+  animation-timing-function: ease-out;
+  animation-duration: 300ms;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+
+  > span {
+    animation-name: resultButtonIconAnimation;
+    animation-delay: 50ms;
+    animation-duration: 400ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+    animation-play-state: paused;
+  }
+
+  .screen--show & {
+    animation-play-state: running;
+
+    > span {
+      animation-play-state: running;
+    }
+  }
+
 
   @media (min-width: $stop-scaling) {
     margin: auto auto 10px;
@@ -327,12 +370,12 @@
     transform: translate3d(7%, 30%, 0) rotate(10deg);
   }
 
-  50%{
+  50% {
     transform: translate3d(7%, 30%, 0) rotate(-5deg);
     opacity: 1;
   }
 
-  75%{
+  75% {
     opacity: 1;
     transform: translate3d(7%, 30%, 0) rotate(5deg);
   }
@@ -392,6 +435,7 @@
       fadeInFlamingo 350ms cubic-bezier(0.75, 0.75, 0.75, 1.15) 50ms both,
       bounceFlamingo 3s ease-in-out 400ms infinite;
     animation-play-state: paused;
+
     .screen--show & {
       animation-play-state: running;
     }
@@ -415,7 +459,7 @@
     animation-duration: 2200ms;
     animation-delay: 150ms;
     animation-fill-mode: both;
-    animation-timing-function:ease-in-out;
+    animation-timing-function: ease-in-out;
     animation-play-state: paused;
     transform-origin: left center;
 
@@ -447,6 +491,7 @@
     animation-timing-function: ease-in-out;
     animation-play-state: paused;
     transform-origin: left center;
+
     .screen--show & {
       animation-play-state: running;
     }
