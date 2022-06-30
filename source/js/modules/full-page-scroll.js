@@ -50,6 +50,7 @@ export default class FullPageScroll {
 
   async changePageDisplay() {
     await this.animateScreenTransition();
+    this.startPrizesAnimation();
     setTheme();
     this.changeVisibilityDisplay();
     this.changeActiveMenuItem();
@@ -68,11 +69,19 @@ export default class FullPageScroll {
     background.classList.add(`active`);
 
     return new Promise((resolve) => {
-      background.addEventListener(`transitionend`, ()=> {
+      background.addEventListener(`transitionend`, () => {
         background.classList.remove(`active`);
         resolve();
       }, {once: true});
     });
+  }
+
+  startPrizesAnimation() {
+    if (this.activeScreen !== 2) {
+      return;
+    }
+    const primaryAward = document.getElementById(`prize1`);
+    primaryAward.src = `img/prize1.svg?${Math.random()}`;
   }
 
   changeVisibilityDisplay() {
